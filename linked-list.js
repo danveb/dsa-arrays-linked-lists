@@ -142,7 +142,26 @@ class LinkedList {
   /** setAt(idx, val): set val at idx to val */
 
   setAt(idx, val) {
+    // case: check if idx is valid or greater than length 
+    if(idx < 0 || idx >= this.length) {
+      throw new Error('Invalid index') 
+    }
 
+    if(idx === this.length - 1) {
+      this.tail.val = val 
+    } else {
+      let current = this.head 
+      let i = 0
+
+      while(i < idx) {
+        current = current.next 
+        i++
+      }
+
+      current.val = val 
+
+    }
+  
   }
 
   /** insertAt(idx, val): add node w/val before idx. */
@@ -214,6 +233,21 @@ class LinkedList {
   /** average(): return an average of all values in the list */
 
   average() {
+    // case: check if the link list is empty 
+    // - or maybe the head/tail is null 
+    if(this.length === 0) {
+      return 0
+    }
+
+    let total = 0
+    let current = this.head     
+
+    // loop through entire list 
+    while(current) {
+      total += current.val 
+      current = current.next;
+    }
+    return total/this.length 
     
   }
 }
