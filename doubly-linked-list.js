@@ -35,7 +35,7 @@ class DoublyLinkedList {
         this.length++
     }
 
-    pop(val) {
+    pop() {
         if(this.length === 0) {
             return false 
         }
